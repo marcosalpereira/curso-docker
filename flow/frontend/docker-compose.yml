@@ -1,6 +1,7 @@
 version: '3'
+
 services:
-  frontend:
+  web:
     build:
       context: .
       dockerfile: dev.Dockerfile
@@ -9,3 +10,12 @@ services:
     volumes:
       - /usr/app/node_modules
       - .:/usr/app
+
+  tests:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - /usr/app/node_modules
+      - .:/usr/app
+    command: npm run test
