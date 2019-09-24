@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t marcosalpereira/frontend-react -f dev.Dockerfile flow/frontend
+
+script:
+  - docker run -e CI=true marcosalpereira/frontend-react npm run test
