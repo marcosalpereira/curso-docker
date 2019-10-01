@@ -1,4 +1,4 @@
 module.exports = {
-    redisHost: drocess.env.REDIS_HOST,
-    redisPort: drocess.env.REDIS_PORT,
+    redisHost: process.env.REDIS_HOST,
+    redisPort: process.env.REDIS_PORT,
 };
