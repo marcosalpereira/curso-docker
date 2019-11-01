@@ -6,7 +6,7 @@ metadata:
     component: web
 spec:
   containers:
-    - name: client-pod
+    - name: client
       image: marcosalpereira/multi-client
       ports:
         - containerPort: 3000
