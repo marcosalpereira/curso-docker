@@ -1,24 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: client-deployment
+  name: worker-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      component: web
+      component: worker
   template:
     metadata:
       labels:
-        component: web
+        component: worker
     spec:
       containers:
-        - name: client
-          image: marcosalpereira/complex-client
+        - name: worker
+          image: marcosalpereira/complex-worker
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
-          ports:
-            - containerPort: 3000
-

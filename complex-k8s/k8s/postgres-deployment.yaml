@@ -1,24 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: client-deployment
+  name: postgres-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      component: web
+      component: postgres
   template:
     metadata:
       labels:
-        component: web
+        component: postgres
     spec:
       containers:
-        - name: client
-          image: marcosalpereira/complex-client
+        - name: postgres
+          image: postgres
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 3000
-
+          - containerPort: 5432
